@@ -1,7 +1,7 @@
 ﻿using Clean.Domain.Common;
 
 namespace Clean.Domain.Entities;
-public class User : BaseEntity
+public class User : BaseEntity , ISoftDeleted
 {
     public string FirstName { get; init; }
     public string LastName { get; init; }
@@ -10,5 +10,5 @@ public class User : BaseEntity
     public string Password { get; init; }
 
     public ICollection<Post> Posts { get; }
-
+    public bool IsDeleted { get; set; }
 }
