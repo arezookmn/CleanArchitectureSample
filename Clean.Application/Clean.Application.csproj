@@ -10,4 +10,18 @@
     <ProjectReference Include="..\Domain\Clean.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Posts\Commands\AddPost\" />
+    <Folder Include="Features\Posts\Commands\DeletePost\" />
+    <Folder Include="Features\Posts\Commands\UpdatePost\" />
+    <Folder Include="Features\Posts\Queries\GetPostById\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
 </Project>

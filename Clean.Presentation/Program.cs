@@ -1,4 +1,5 @@
 using Clean.Infrastructure.Persistence.Extensions;
+using Clean.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.ConfigurePersistence(builder.Configuration);
+
+builder.Services.AddMapperConfiguration()
+                .AddMediatorConfiguration();
+
 
 
 var app = builder.Build();
