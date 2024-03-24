@@ -2,9 +2,9 @@
 using FluentValidation;
 
 namespace Clean.Application.Features.Users.Commands.UpdateUser;
-public class UpdateUserValidator : AbstractValidator<UpdateUserCommand>
+public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
 {
-    public UpdateUserValidator()
+    public UpdateUserCommandValidator()
     {
         RuleFor(u => u.Email)
             .EmailAddress().WithMessage("Invalid email address")

@@ -10,8 +10,8 @@ public class GetUserQueryHandler(IUserRepository userRepository, IMapper mapper)
 
     public async Task<GetUserResponse> Handle(GetUserQuery request, CancellationToken cancellationToken)
     {
-        await _userRepository.GetByIdAsync(request.Id);
-        var response = _mapper.Map<GetUserResponse>(request);
+        var userEntity = await _userRepository.GetByIdAsync(request.Id);
+        var response = _mapper.Map<GetUserResponse>(userEntity);
         return response;
 
     }
