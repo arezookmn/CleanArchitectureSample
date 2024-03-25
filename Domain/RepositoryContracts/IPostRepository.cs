@@ -7,5 +7,5 @@ public interface IPostRepository
     void Delete(Post post);
     void Update(Post post);
     Task<Post> GetByIdAsync(Guid id);
-    Task<IEnumerable<Post>> GetAllPosts();
+    Task<IEnumerable<Post>> GetAllPosts(int skip, int take);
 }

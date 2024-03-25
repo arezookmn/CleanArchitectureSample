@@ -1,5 +1,6 @@
 ﻿using Clean.Application.Features.Posts.Commands.AddPost;
 using Clean.Application.Features.Posts.Commands.DeletePost;
+using Clean.Application.Features.Posts.Queries.GetAllPosts;
 using Clean.Application.Features.Posts.Queries.GetPostById;
 using FluentValidation;
 using MediatR;
@@ -32,6 +33,13 @@ public class PostsController (ISender sender): ControllerBase
         GetPostQuery query = new GetPostQuery() { Id = id };
         var response = await _sender.Send(query, cancellationToken);
         if (response is null) return NotFound();
+        return Ok(response);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<GetPostResponse>>> GetPosts( [FromQuery] GetAllPostsQuery query, CancellationToken cancellationToken)
+    {
+        var response = await _sender.Send(query, cancellationToken);
         return Ok(response);
     }
 
